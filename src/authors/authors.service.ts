@@ -6,43 +6,8 @@ import { UpdateAuthorDto } from './dto/update-author.dto';
 
 @Injectable()
 export class AuthorsService {
-  private authors: Author[] = [
-    {
-      id: 1,
-      firstName: 'J.K.',
-      lastName: 'Rowling',
-      email: 'jk.rowling@example.com',
-      birthDate: new Date('1965-07-31'),
-      nationality: 'British',
-      biography: 'British author, best known for the Harry Potter series.',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-    {
-      id: 2,
-      firstName: 'George',
-      lastName: 'Orwell',
-      email: 'george.orwell@example.com',
-      birthDate: new Date('1903-06-25'),
-      nationality: 'British',
-      biography: 'English novelist and essayist, known for 1984 and Animal Farm.',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-    {
-      id: 3,
-      firstName: 'Agatha',
-      lastName: 'Christie',
-      email: 'agatha.christie@example.com',
-      birthDate: new Date('1890-09-15'),
-      nationality: 'British',
-      biography: 'English writer known for detective novels featuring Hercule Poirot.',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-  ];
-
-  private nextId = 4;
+  private authors: Author[] = [];
+  private nextId = 1;
 
   findAll(): Author[] {
     return this.authors;

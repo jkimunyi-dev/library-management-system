@@ -6,55 +6,8 @@ import { UpdateMemberDto } from './dto/update-member.dto';
 
 @Injectable()
 export class MembersService {
-  private members: Member[] = [
-    {
-      id: 1,
-      firstName: 'John',
-      lastName: 'Doe',
-      email: 'john.doe@example.com',
-      phoneNumber: '+1234567890',
-      address: '123 Main St, City, State 12345',
-      membershipType: 'STANDARD',
-      joinDate: new Date('2023-01-15'),
-      expiryDate: new Date('2024-01-15'),
-      isActive: true,
-      borrowedBooks: [1, 3],
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-    {
-      id: 2,
-      firstName: 'Jane',
-      lastName: 'Smith',
-      email: 'jane.smith@example.com',
-      phoneNumber: '+1234567891',
-      address: '456 Oak Ave, City, State 12346',
-      membershipType: 'PREMIUM',
-      joinDate: new Date('2023-03-10'),
-      expiryDate: new Date('2024-03-10'),
-      isActive: true,
-      borrowedBooks: [2],
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-    {
-      id: 3,
-      firstName: 'Bob',
-      lastName: 'Johnson',
-      email: 'bob.johnson@university.edu',
-      phoneNumber: '+1234567892',
-      address: '789 College Rd, University Town, State 12347',
-      membershipType: 'STUDENT',
-      joinDate: new Date('2023-09-01'),
-      expiryDate: new Date('2024-09-01'),
-      isActive: true,
-      borrowedBooks: [],
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-  ];
-
-  private nextId = 4;
+  private members: Member[] = [];
+  private nextId = 1;
 
   findAll(): Member[] {
     return this.members;

@@ -6,66 +6,8 @@ import { UpdateBookDto } from './dto/update-book.dto';
 
 @Injectable()
 export class BooksService {
-  private books: Book[] = [
-    {
-      id: 1,
-      title: 'Harry Potter and the Philosopher\'s Stone',
-      isbn: '978-0747532699',
-      authorId: 1,
-      genre: 'Fantasy',
-      publishedYear: 1997,
-      publisher: 'Bloomsbury',
-      totalCopies: 10,
-      availableCopies: 8,
-      description: 'The first book in the Harry Potter series.',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-    {
-      id: 2,
-      title: '1984',
-      isbn: '978-0451524935',
-      authorId: 2,
-      genre: 'Dystopian Fiction',
-      publishedYear: 1949,
-      publisher: 'Secker & Warburg',
-      totalCopies: 15,
-      availableCopies: 12,
-      description: 'A dystopian social science fiction novel.',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-    {
-      id: 3,
-      title: 'Murder on the Orient Express',
-      isbn: '978-0062693662',
-      authorId: 3,
-      genre: 'Mystery',
-      publishedYear: 1934,
-      publisher: 'Collins Crime Club',
-      totalCopies: 8,
-      availableCopies: 6,
-      description: 'A detective novel featuring Hercule Poirot.',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-    {
-      id: 4,
-      title: 'Animal Farm',
-      isbn: '978-0451526342',
-      authorId: 2,
-      genre: 'Political Satire',
-      publishedYear: 1945,
-      publisher: 'Secker & Warburg',
-      totalCopies: 12,
-      availableCopies: 10,
-      description: 'An allegorical novella about farm animals.',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-  ];
-
-  private nextId = 5;
+  private books: Book[] = [];
+  private nextId = 1;
 
   findAll(): Book[] {
     return this.books;
