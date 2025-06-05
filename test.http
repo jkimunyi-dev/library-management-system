@@ -1,0 +1,168 @@
+@baseUrl = http://localhost:3000/api
+
+### Get all authors
+GET {{baseUrl}}/authors
+
+### Get author by ID
+GET {{baseUrl}}/authors/1
+
+### Create new author
+POST {{baseUrl}}/authors
+Content-Type: application/json
+
+{
+  "firstName": "Stephen",
+  "lastName": "King",
+  "email": "stephen.king@example.com",
+  "birthDate": "1947-09-21",
+  "nationality": "American",
+  "biography": "American author of horror, supernatural fiction, suspense, crime, science-fiction, and fantasy novels."
+}
+
+### Update author
+PUT {{baseUrl}}/authors/1
+Content-Type: application/json
+
+{
+  "biography": "British author, philanthropist, and screenwriter, best known for the Harry Potter series."
+}
+
+### Delete author
+DELETE {{baseUrl}}/authors/1
+
+### Get all books
+GET {{baseUrl}}/books
+
+### Get books by author
+GET {{baseUrl}}/books?authorId=1
+
+### Get book by ID
+GET {{baseUrl}}/books/1
+
+### Create new book
+POST {{baseUrl}}/books
+Content-Type: application/json
+
+{
+  "title": "The Shining",
+  "isbn": "978-0307743657",
+  "authorId": 4,
+  "genre": "Horror",
+  "publishedYear": 1977,
+  "publisher": "Doubleday",
+  "totalCopies": 5,
+  "description": "A horror novel about a family isolated in a haunted hotel."
+}
+
+### Update book
+PUT {{baseUrl}}/books/1
+Content-Type: application/json
+
+{
+  "availableCopies": 7,
+  "description": "The first book in the Harry Potter series - Updated description."
+}
+
+### Borrow a book
+POST {{baseUrl}}/books/1/borrow
+
+### Return a book 
+POST {{baseUrl}}/books/1/return
+
+### Delete book 
+DELETE {{baseUrl}}/books/5
+
+### Get all members
+GET {{baseUrl}}/members
+
+### Get member by email
+GET {{baseUrl}}/members?email=john.doe@example.com
+
+### Get member by ID
+GET {{baseUrl}}/members/1
+
+### Create new member
+POST {{baseUrl}}/members
+Content-Type: application/json
+
+{
+  "firstName": "Alice",
+  "lastName": "Wilson",
+  "email": "alice.wilson@example.com",
+  "phoneNumber": "+1234567893",
+  "address": "321 Elm St, City, State 12348",
+  "membershipType": "PREMIUM"
+}
+
+### Update member
+PUT {{baseUrl}}/members/1
+Content-Type: application/json
+
+{
+  "phoneNumber": "+1234567899",
+  "address": "123 Main St, Updated City, State 12345"
+}
+
+### Member borrows a book
+POST {{baseUrl}}/members/1/borrow/4
+
+### Member returns a book
+POST {{baseUrl}}/members/1/return/1
+
+### Renew membership
+POST {{baseUrl}}/members/1/renew
+
+### Delete member 
+DELETE {{baseUrl}}/members/4
+
+### Test workflow: Create author, create book, create member, borrow book
+
+### 1. Create new author
+POST {{baseUrl}}/authors
+Content-Type: application/json
+
+{
+  "firstName": "Isaac",
+  "lastName": "Asimov",
+  "email": "isaac.asimov@example.com",
+  "birthDate": "1920-01-02",
+  "nationality": "American",
+  "biography": "American writer and professor of biochemistry, known for science fiction works."
+}
+
+### 2. Create book for the new author (use ID from previous response)
+POST {{baseUrl}}/books
+Content-Type: application/json
+
+{
+  "title": "Foundation",
+  "isbn": "978-0553293357",
+  "authorId": 5,
+  "genre": "Science Fiction",
+  "publishedYear": 1951,
+  "publisher": "Gnome Press",
+  "totalCopies": 8,
+  "description": "First book in the Foundation series."
+}
+
+### 3. Create new member
+POST {{baseUrl}}/members
+Content-Type: application/json
+
+{
+  "firstName": "Charlie",
+  "lastName": "Brown",
+  "email": "charlie.brown@example.com",
+  "phoneNumber": "+1234567894",
+  "address": "456 Peanut Ave, Comic City, State 12349",
+  "membershipType": "STUDENT"
+}
+
+### 4. Member borrows the new book 
+POST {{baseUrl}}/members/5/borrow/6
+
+### 5. Check member's borrowed books
+GET {{baseUrl}}/members/5
+
+### 6. Check book availability
+GET {{baseUrl}}/books/6
