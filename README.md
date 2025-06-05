@@ -1,98 +1,305 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# Library Management System - NestJS API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+A complete library management system built with NestJS, featuring three main modules: Authors, Books, and Members. The system uses in-memory array storage and implements full CRUD operations with proper TypeScript interfaces and DTOs.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## 🚀 Features
 
-## Description
+- **Authors Management**: Create, read, update, and delete authors
+- **Books Management**: Manage library catalog with borrowing/returning functionality
+- **Members Management**: Handle library member registration and book borrowing
+- **RESTful API**: Clean REST endpoints following best practices
+- **TypeScript**: Fully typed with interfaces and DTOs
+- **In-Memory Storage**: Array-based storage for demonstration purposes
+- **Modular Architecture**: Separate modules following NestJS patterns
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## 📋 Prerequisites
 
-## Project setup
+- Node.js (v16 or higher)
+- npm or yarn
+- NestJS CLI (recommended)
 
+## 🛠 Installation & Setup
+
+### 1. Install NestJS CLI globally
 ```bash
-$ pnpm install
+npm install -g @nestjs/cli
 ```
 
-## Compile and run the project
-
+### 2. Create new NestJS project
 ```bash
-# development
-$ pnpm run start
-
-# watch mode
-$ pnpm run start:dev
-
-# production mode
-$ pnpm run start:prod
+nest new library-management-system
+cd library-management-system
 ```
 
-## Run tests
-
+### 3. Generate modules using NestJS CLI
 ```bash
-# unit tests
-$ pnpm run test
+# Generate Authors module
+nest generate module authors
+nest generate controller authors
+nest generate service authors
 
-# e2e tests
-$ pnpm run test:e2e
+# Generate Books module
+nest generate module books
+nest generate controller books
+nest generate service books
 
-# test coverage
-$ pnpm run test:cov
+# Generate Members module
+nest generate module members
+nest generate controller members
+nest generate service members
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
+### 4. Create directory structure
 ```bash
-$ pnpm install -g @nestjs/mau
-$ mau deploy
+# Create dto and interfaces directories
+mkdir src/authors/dto src/authors/interfaces
+mkdir src/books/dto src/books/interfaces
+mkdir src/members/dto src/members/interfaces
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+### 5. Replace generated files
+Copy all the provided files to their respective locations in your project.
 
-## Resources
+### 6. Install dependencies and run
+```bash
+npm install
+npm run start:dev
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+The server will start on `http://localhost:3000` with API endpoints available at `http://localhost:3000/api`.
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+## 📁 Project Structure
 
-## Support
+```
+src/
+├── authors/
+│   ├── dto/
+│   │   ├── create-author.dto.ts
+│   │   └── update-author.dto.ts
+│   ├── interfaces/
+│   │   └── author.interface.ts
+│   ├── authors.controller.ts
+│   ├── authors.service.ts
+│   └── authors.module.ts
+├── books/
+│   ├── dto/
+│   │   ├── create-book.dto.ts
+│   │   └── update-book.dto.ts
+│   ├── interfaces/
+│   │   └── book.interface.ts
+│   ├── books.controller.ts
+│   ├── books.service.ts
+│   └── books.module.ts
+├── members/
+│   ├── dto/
+│   │   ├── create-member.dto.ts
+│   │   └── update-member.dto.ts
+│   ├── interfaces/
+│   │   └── member.interface.ts
+│   ├── members.controller.ts
+│   ├── members.service.ts
+│   └── members.module.ts
+├── app.controller.ts
+├── app.service.ts
+├── app.module.ts
+└── main.ts
+```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## 🔌 API Endpoints
 
-## Stay in touch
+### Authors
+- `GET /api/authors` - Get all authors
+- `GET /api/authors/:id` - Get author by ID
+- `POST /api/authors` - Create new author
+- `PUT /api/authors/:id` - Update author
+- `DELETE /api/authors/:id` - Delete author
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### Books
+- `GET /api/books` - Get all books
+- `GET /api/books?authorId=:id` - Get books by author
+- `GET /api/books/:id` - Get book by ID
+- `POST /api/books` - Create new book
+- `PUT /api/books/:id` - Update book
+- `DELETE /api/books/:id` - Delete book
+- `POST /api/books/:id/borrow` - Borrow a book
+- `POST /api/books/:id/return` - Return a book
 
-## License
+### Members
+- `GET /api/members` - Get all members
+- `GET /api/members?email=:email` - Get member by email
+- `GET /api/members/:id` - Get member by ID
+- `POST /api/members` - Create new member
+- `PUT /api/members/:id` - Update member
+- `DELETE /api/members/:id` - Delete member
+- `POST /api/members/:id/borrow/:bookId` - Member borrows book
+- `POST /api/members/:id/return/:bookId` - Member returns book
+- `POST /api/members/:id/renew` - Renew membership
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+## 📊 Data Models
+
+### Author
+```typescript
+{
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  birthDate: Date;
+  nationality: string;
+  biography?: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+```
+
+### Book
+```typescript
+{
+  id: number;
+  title: string;
+  isbn: string;
+  authorId: number;
+  genre: string;
+  publishedYear: number;
+  publisher: string;
+  totalCopies: number;
+  availableCopies: number;
+  description?: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+```
+
+### Member
+```typescript
+{
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string;
+  address: string;
+  membershipType: 'STANDARD' | 'PREMIUM' | 'STUDENT';
+  joinDate: Date;
+  expiryDate: Date;
+  isActive: boolean;
+  borrowedBooks: number[];
+  createdAt: Date;
+  updatedAt: Date;
+}
+```
+
+## 🧪 Testing
+
+### Using REST Client (VS Code Extension)
+
+1. Install the REST Client extension in VS Code
+2. Use the provided `test.http` file
+3. Click on "Send Request" above each HTTP request
+
+### Sample API Calls
+
+#### Create Author
+```http
+POST http://localhost:3000/api/authors
+Content-Type: application/json
+
+{
+  "firstName": "Stephen",
+  "lastName": "King",
+  "email": "stephen.king@example.com",
+  "birthDate": "1947-09-21",
+  "nationality": "American",
+  "biography": "American author of horror fiction."
+}
+```
+
+#### Create Book
+```http
+POST http://localhost:3000/api/books
+Content-Type: application/json
+
+{
+  "title": "The Shining",
+  "isbn": "978-0307743657",
+  "authorId": 1,
+  "genre": "Horror",
+  "publishedYear": 1977,
+  "publisher": "Doubleday",
+  "totalCopies": 5,
+  "description": "A horror novel about a family isolated in a haunted hotel."
+}
+```
+
+#### Create Member
+```http
+POST http://localhost:3000/api/members
+Content-Type: application/json
+
+{
+  "firstName": "Alice",
+  "lastName": "Wilson",
+  "email": "alice.wilson@example.com",
+  "phoneNumber": "+1234567893",
+  "address": "321 Elm St, City, State 12348",
+  "membershipType": "PREMIUM"
+}
+```
+
+## 🎯 Key Learning Concepts Demonstrated
+
+1. **NestJS Modules**: Organized code into feature modules
+2. **Controllers**: Handle HTTP requests and responses
+3. **Services**: Business logic and data manipulation
+4. **DTOs**: Data Transfer Objects for API contracts
+5. **Interfaces**: TypeScript type definitions
+6. **Dependency Injection**: NestJS IoC container
+7. **HTTP Status Codes**: Proper REST API responses
+8. **Error Handling**: NotFoundException for missing resources
+9. **Query Parameters**: Filtering data with query strings
+10. **RESTful Design**: Following REST conventions
+
+## 🔧 Available Scripts
+
+```bash
+# Development
+npm run start:dev
+
+# Production build
+npm run build
+npm run start:prod
+
+# Testing
+npm run test
+npm run test:watch
+npm run test:cov
+```
+
+## 🚀 Next Steps & Extensions
+
+1. **Add Validation**: Implement class-validator for DTO validation
+2. **Database Integration**: Replace in-memory storage with database
+3. **Authentication**: Add JWT-based authentication
+4. **Logging**: Implement comprehensive logging
+5. **Swagger Documentation**: Add OpenAPI documentation
+6. **Unit Tests**: Add comprehensive test coverage
+7. **Docker**: Containerize the application
+8. **Rate Limiting**: Add API rate limiting
+9. **Caching**: Implement response caching
+10. **File Upload**: Add book cover image upload functionality
+
+## 📝 Notes
+
+- Data is stored in memory and will be reset on server restart
+- IDs are auto-incrementing integers
+- All endpoints return JSON responses
+- CORS is enabled for development
+- Global API prefix `/api` is configured
+
+## 🤝 Contributing
+
+This is a learning project demonstrating NestJS concepts. Feel free to extend and modify as needed for your learning purposes.
+
+## 📄 License
+
+This project is for educational purposes.
